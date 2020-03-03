@@ -17,7 +17,7 @@
                         <div class="page-links">
                             <a href="{% url 'login' %}" class="active" >Login</a><a href="{% url 'register' %}" >Register</a>
                         </div>    
-                        <form action='/login'' method='POST'>
+                        <form action='/login' method='POST'>
                             {% csrf_token %}
                             <input class="form-control" type="text" name="mobile"  placeholder="Phone Number">
                             <input class="form-control" type="password" name="password"  placeholder="Password" >
@@ -26,7 +26,7 @@
                             </div>
                         </form>
                         <div class="other-links">
-                            <span>Or Register as </span><a href="#">Driver</a>
+                            <span>Or Login as </span><a href="{% url 'logindriver' %}">Driver</a>
                         </div>
                     </div>
                 </div>

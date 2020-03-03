@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+    <a class="navbar-brand" href="#">Driver Dashboard</a>
+</nav>
+<div class="container">
+    <h1>Welcome to Driver Home page</h1>
+
+    <div class="Row">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ride No</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ride_item in ride_items %}
+          <tr>
+            <th scope="row">{{ ride_item.id }}</th>
+            <td>{{ ride_item.ride_no }}</td>
+            <td>{{ ride_item.From }}</td>
+            <td>{{ ride_item.to }}</td>
+            <td>
+              <form action="confirm_ride/{{ride_item.id}}/" action="post">
+                  <input type="hidden" id="to" name="to" value="Kerala">
+                  <button type="submit" class="btn btn-sm btn-info">Confirm</button>
+              </form>
+              <form action="delete_ride/{{ride_item.id}}/" action="post">
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>      
+    </div>
+
+    
+</div>
+{% endblock content %}

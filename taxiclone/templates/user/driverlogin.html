@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="page-signup">
+        <div class="row">
+            <div class="img-holder">
+                <div class="superbg"></div>
+                <div class="info-holder">
+                    <img src="{% static 'images/graphic1.svg' %}" alt>
+                </div>
+            </div>
+            <div class="signup-form">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Get more things done with Log in platform.</h3>
+                        <div class="page-links">
+                            <a href="{% url 'logindriver' %}" class="active" >Login</a><a href="{% url 'driver' %}" >Register</a>
+                        </div>    
+                        <form action='/driverlogin' method='POST'>
+                            {% csrf_token %}
+                            <input class="form-control" type="text" name="mobile"  placeholder="Phone Number">
+                            <input class="form-control" type="password" name="password"  placeholder="Password" >
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn" >Login</button>
+                            </div>
+                        </form>
+                        <div class="other-links">
+                            <span>Or Login as </span><a href="{% url 'login' %}">Customer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
