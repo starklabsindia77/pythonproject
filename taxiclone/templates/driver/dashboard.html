@@ -28,8 +28,8 @@
             <td>{{ ride_item.From }}</td>
             <td>{{ ride_item.to }}</td>
             <td>
-              <form action="confirm_ride/{{ride_item.id}}/" action="post">
-                  <input type="hidden" id="to" name="to" value="Kerala">
+              <form action="confirm_ride/{{ride_item.id}}/" method="POST">
+                  <input type="hidden" id="to" name="to" value="23">
                   <button type="submit" class="btn btn-sm btn-info">Confirm</button>
               </form>
               <form action="delete_ride/{{ride_item.id}}/" action="post">

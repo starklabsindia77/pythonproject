@@ -29,6 +29,7 @@ def handleLogin(request):
         user = authenticate(username=loginusername, password=loginpassword)
         if user is not None:
             login(request, user)
+            #request.session[‘id’] = id
             messages.success(request,"successfully logged in")
             return redirect('home')
         else:
